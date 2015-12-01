@@ -2,8 +2,8 @@ var Nightmare = require('nightmare');
 var fs = require('fs');
 
 
-var debut=31;
-var fin=40;
+var debut=36;
+var fin=50;
 
 var fichier='resultats'+debut+'_'+fin+'.txt';
 
@@ -13,6 +13,8 @@ var runNext = function(i) {
   if (i<(fin+1)) {
 
 // Bloc fixe //////////////////
+
+  var resultsUrls=[];
 
   new Nightmare()
   .goto('http://www.maison-objet.com/fr/paris/exposants?q=&sector=0&country=0&sort=10&page='+i)
