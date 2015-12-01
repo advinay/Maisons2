@@ -2,8 +2,8 @@ var Nightmare = require('nightmare');
 var fs = require('fs');
 
 
-var debut=11;
-var fin=15;
+var debut=21;
+var fin=30;
 
 var fichier='resultats'+debut+'_'+fin+'.txt';
 
@@ -32,15 +32,15 @@ var runNext = function(i) {
     if (err) { console.log(err); }
   
 
-            for (var i = 0; i < resultsUrls.length; i++){
+            for (var j = 0; j < resultsUrls.length; j++){
           
               nightmare
-              .goto(resultsUrls[i])
+              .goto(resultsUrls[j])
               .wait(1000)
               .evaluate(function() {
 
               var contacts=$('.exhibitor-contact a')[1].href;
-              console.log(contacts);
+              // console.log(contacts);
               return contacts;
               }, function(contacts){
                 // emails.push(contacts);
@@ -59,22 +59,16 @@ var runNext = function(i) {
               });
         }
 
-        runNext(i+1);
-
-
-
-
       });
 
-
 ////////////// FIN BLOC FIXE //////////////////
+
+  
+  console.log("je passe pour la "+i+" ème fois");
+  runNext(i+1);
 
   }
 
 }
 runNext(debut);
-
-
-  
-
 
