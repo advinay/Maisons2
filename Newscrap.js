@@ -2,8 +2,8 @@ var Nightmare = require('nightmare');
 var fs = require('fs');
 
 
-var debut=16;
-var fin=20;
+var debut=86;
+var fin=94;
 
 var fichier='resultats'+debut+'_'+fin+'.txt';
 
